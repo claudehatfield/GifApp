@@ -1,0 +1,1 @@
+var queryUrl =  "https://api.giphy.com/v1/gifs/search?d7NwVS7qh71bqzCyU6QtjQl8cLGSICEX"
