@@ -35,20 +35,29 @@ $(document).ready(function () {
       method: "GET"
     }).then(function (response) {
       console.log(response);
+      var gifImage = response.data;
+
+      
+
+      
+      
+      // populate 10 gifs after clicking button
+     for (i = 0; i < gifImage.length; i++ ){
+      
+     var insertGif = $("<img>");
 
 
-      var gifImage = response.data.images.original.url;
-      var insertGif = $("<img>");
+     insertGif.attr("src", gifImage[i].images.fixed_height.url);
+     insertGif.attr("src", gifImage[i].images.fixed_height_still.url);
+     insertGif.attr("data-still", gifImage[i].images.fixed_height_still.url);
+     insertGif.attr("data-animate", gifImage[i].images.fixed_height.url);
+     insertGif.attr("data-state", "still");
 
-     for (i = 0; i < )
-
-      insertGif.attr("src", gifImage);
-
-      $(".gifArea").append(insertGif);
+    $(".gifArea").prepend(insertGif);
 
       console.log('button works');
-    });
-  });
+    };
+  })});
 
 
 
