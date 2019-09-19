@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
   // Global Variables 
-  var buttonArray = ["The Boondock Saints", "The Terminator", "The Lion King", "Dumb and Dumber", "Pitch Black"];
+  var buttonArray = ["The Boondock Saints", "The Terminator", "The Lion King", "Dumb and Dumber", "Top Gun"];
 
   // Populate the buttons
 
@@ -10,12 +10,12 @@ $(document).ready(function () {
     var gifButton = $("<button>");
     gifButton.addClass("gifDisplay");
     gifButton.text(buttonArray[i]);
-     gifButton.attr("data-movie", buttonArray[i]);
+    gifButton.attr("data-movie", buttonArray[i]);
     $("#gifButtonArea").append(gifButton);
     console.log(gifButton);
   }
   // console.log(gifButton);
-  // Add Ajax request to buttons
+  
 
 
 
@@ -24,7 +24,7 @@ $(document).ready(function () {
 
   // Ajax request
 
-  
+
 
   $(".gifDisplay").on("click", function () {
     movies = $(this).attr("data-movie");
@@ -36,35 +36,47 @@ $(document).ready(function () {
     }).then(function (response) {
       console.log(response);
       var gifImage = response.data;
+      
+     
 
-      
 
-      
-      
       // populate 10 gifs after clicking button
-     for (i = 0; i < gifImage.length; i++ ){
-      
-     var insertGif = $("<img>");
+      for (i = 0; i < gifImage.length; i++) {
+
+        var insertGif = $("<img class='gif'>");
+        var rating = gifImage[i].rating;
+        var ratingArea = $("<p>").text("Rating: " + rating);
+
+        // adding attributes to make images still
+        insertGif.attr("src", gifImage[i].images.fixed_height.url);
+        insertGif.attr("src", gifImage[i].images.fixed_height_still.url);
+        insertGif.attr("data-still", gifImage[i].images.fixed_height_still.url);
+        insertGif.attr("data-move", gifImage[i].images.fixed_height.url);
+        insertGif.attr("data-state", "still");
+        // add both rating and gif to area
+        $(".gifArea").prepend(ratingArea);
+        $(".gifArea").prepend(insertGif);
+        
+
+        
+
+        console.log('button works');
+      };
+      // functionality to change the state of image on click
+      $(".gif").on("click", function () {
+        var state = $(this).attr("data-state");
+
+        if (state === "still") {
+          $(this).attr("src", $(this).attr("data-move"));
+          $(this).attr("data-state", "animate");
+        } else {
+          $(this).attr("src", $(this).attr("data-still"));
+          $(this).attr("data-state", "still");
+        }
+      });
+
+    });
 
 
-     insertGif.attr("src", gifImage[i].images.fixed_height.url);
-     insertGif.attr("src", gifImage[i].images.fixed_height_still.url);
-     insertGif.attr("data-still", gifImage[i].images.fixed_height_still.url);
-     insertGif.attr("data-animate", gifImage[i].images.fixed_height.url);
-     insertGif.attr("data-state", "still");
-
-    $(".gifArea").prepend(insertGif);
-
-      console.log('button works');
-    };
-  })});
-
-
-
-
-
-
-
-
-
+  })
 });
