@@ -11,7 +11,7 @@ $(document).ready(function () {
     $("#gifButtonArea").empty();
     for (i = 0; i < buttonArray.length; i++) {
 
-      var gifButton = $("<button>");
+      var gifButton = $("<button class = 'btn btn-primary'>");
       gifButton.addClass("gifDisplay");
       gifButton.text(buttonArray[i]);
       gifButton.attr("data-movie", buttonArray[i]);
@@ -40,7 +40,7 @@ $(document).ready(function () {
         // populate 10 gifs after clicking button
         for (i = 0; i < gifImage.length; i++) {
 
-          var insertGif = $("<img class='gif'>");
+          var insertGif = $("<img class='gif '>");
           var rating = gifImage[i].rating;
           var ratingArea = $("<p>").text("Rating: " + rating);
 
@@ -52,7 +52,9 @@ $(document).ready(function () {
           insertGif.attr("data-state", "still");
           // add both rating and gif to area
           $(".gifArea").prepend(ratingArea);
+         
           $(".gifArea").prepend(insertGif);
+          
 
         }
       

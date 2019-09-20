@@ -1,8 +1,23 @@
-.gif {
-  width: 250px;
-  height: 250px;
+
+.jumbotron{
+  background-color: orange;
+  text-align: center;
+  
 }
 
-.gifArea{
-  padding: 60px;
+.gif {
+  width: 200px;
+  height: 250px;
+  margin: 20px auto;
+  float: left;
+  
 }
+
+
+
+
+.btn{
+  margin: 10px 10px 0 0;
+  
+}
+
