@@ -1,4 +1,12 @@
 
+
+
+.main{
+  border: 2px solid black;
+}
+
+
+
 .jumbotron{
   background-color: orange;
   text-align: center;

@@ -40,9 +40,9 @@ $(document).ready(function () {
         // populate 10 gifs after clicking button
         for (i = 0; i < gifImage.length; i++) {
 
-          var insertGif = $("<img class='gif '>");
+          var insertGif = $("<img class='gif card '>");
           var rating = gifImage[i].rating;
-          var ratingArea = $("<p>").text("Rating: " + rating);
+          var ratingArea = $("<p class = 'card-body'>").text("Rating: " + rating);
 
           // adding attributes to make images still
           insertGif.attr("src", gifImage[i].images.fixed_height.url);
