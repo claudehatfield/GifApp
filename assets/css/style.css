@@ -3,6 +3,7 @@
 
 .main{
   border: 2px solid black;
+  background-color: aliceblue;
 }
 
 
@@ -10,7 +11,9 @@
 .jumbotron{
   background-color: orange;
   text-align: center;
-  
+  text-shadow: 2px;
+  height: 150px;
+  margin-bottom:0px;
 }
 
 .gif {
